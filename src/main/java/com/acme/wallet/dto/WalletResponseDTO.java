@@ -1,12 +1,14 @@
-package com.acme.wallet.domain;
+package com.acme.wallet.dto;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.List;
 
-public class WalletResponse {
+public class WalletResponseDTO {
     String customerName;
     String currency;
     BigDecimal amount;
-
+    private static final List<String> ALLOWEDCURRENCIES = Arrays.asList("INR", "USD", "JPY");
     public String getCustomerName() {
         return customerName;
     }
@@ -20,6 +22,9 @@ public class WalletResponse {
     }
 
     public void setCurrency(String currency) {
+        if (!ALLOWEDCURRENCIES.contains(currency)) {
+            throw new IllegalArgumentException("Invalid status: " + currency);
+        }
         this.currency = currency;
     }
 
