@@ -1,10 +1,8 @@
 package com.acme.merchant.domain;
-import javax.persistence.*; import lombok.Getter; import lombok.Setter;
+import javax.persistence.*;
 import java.math.BigDecimal;
 @Entity
 @Table(name = "merchant_accounts")
-@Getter
-@Setter
 public class MerchantAccount {
 
     @Id

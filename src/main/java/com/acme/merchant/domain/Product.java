@@ -1,9 +1,7 @@
 package com.acme.merchant.domain;
-import javax.persistence.*; import java.math.BigDecimal; import lombok.Getter; import lombok.Setter;
+import javax.persistence.*;
 @Entity
 @Table(name = "products")
-@Getter
-@Setter
 public class Product {
 
     @Id
@@ -19,7 +17,7 @@ public class Product {
     private String description;
 
     @Column(nullable = false)
-    private BigDecimal price;
+    private double price;
 
     @Column(nullable = false, length = 3)
     private String currency;
@@ -61,11 +59,11 @@ public class Product {
         this.description = description;
     }
 
-    public BigDecimal getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
